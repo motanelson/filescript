@@ -61,9 +61,17 @@ def writesf(f1,f):
 def writesh(f1,i:int):
     f1.write(struct.pack('>H',i))
 
+def writeshh(f1,i:int):
+    f1.write(struct.pack('<h',i))
+
+
 def readsh(f1):
     a=f1.read(2)
     return struct.unpack('>H',a)[0]
+
+def readshh(f1):
+    a=f1.read(2)
+    return struct.unpack('<h',a)[0]
 
    
 def savesS(f1,s:str):
