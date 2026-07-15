@@ -17,6 +17,11 @@ for n in cc:
         nn[1]=nn[1].strip()
         nn[0]=nn[0].lower()
         if nn[0]=="string":
+            nn[1]=nn[1].replace("\\n","\n")
+            nn[1]=nn[1].replace("\\r","\r")
+            nn[1]=nn[1].replace("\\t","\t")
+            nn[1]=nn[1].replace("\\a","\a")
+            nn[1]=nn[1].replace("\\b","\b")
             binarys.writesS(f1,nn[1])
         elif nn[0]=="int":
             ff=nn[1].split(",")
@@ -49,6 +54,13 @@ for n in cc:
                 xc=f2.read()
                 f2.close()
                 binarys.writesb(f1,xc)
+        elif nn[0]=="size":
+            nn[1]=nn[1].replace("\\n","\n")
+            nn[1]=nn[1].replace("\\r","\r")
+            nn[1]=nn[1].replace("\\t","\t")
+            nn[1]=nn[1].replace("\\a","\a")
+            nn[1]=nn[1].replace("\\b","\b")
+            binarys.savesS(f1,nn[1])
         
 
 binarys.closew(f1)
